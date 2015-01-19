@@ -33,9 +33,9 @@ sub auth_proxy {
       grep { not $seen{$_}++ }
       grep { s/-\d{4}(?:\.\d{2}\.(?:\d{2})?)?$// || $_ }
       split( /,|\%2C/, $self->param('index') );
-    return $self->render(
-        json => { status => 403, error => 'IndexNoPermissionException' } )
-      unless $self->permiss( \@indices );
+    # return $self->render(
+    #     json => { status => 403, error => 'IndexNoPermissionException' } )
+    #   unless $self->permiss( \@indices );
     $self->proxy;
 }
 
